@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Força por Nome</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <main class="container">
+        <header>
+            <h1>💪 Teste de Força por Nome</h1>
+        </header>
+
+        <nav class="tabs" role="tablist">
+            <button class="tab active" role="tab" aria-selected="true" data-tab="single" onclick="app.switchTab('single')">Modo Solo</button>
+            <button class="tab" role="tab" aria-selected="false" data-tab="compare" onclick="app.switchTab('compare')">Modo Comparação</button>
+        </nav>
+
+        <!-- Modo Solo -->
+        <section id="single-mode" class="mode-section">
+            <div class="form-group">
+                <label for="name-input">Digite seu nome:</label>
+                <input type="text" id="name-input" placeholder="Ex: Herculano da Silva" autocomplete="off">
+            </div>
+            <button id="btn-calculate-single" onclick="app.handleSingleCalculation()">Descobrir Força</button>
+        </section>
+
+        <!-- Modo Comparação -->
+        <section id="compare-mode" class="mode-section hidden">
+            <div class="form-group">
+                <label for="name1-input">Primeiro Nome:</label>
+                <input type="text" id="name1-input" placeholder="Ex: Goku" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="name2-input">Segundo Nome:</label>
+                <input type="text" id="name2-input" placeholder="Ex: Vegeta" autocomplete="off">
+            </div>
+            <button id="btn-calculate-compare" onclick="app.handleCompareCalculation()">Comparar Força</button>
+        </section>
+
+        <!-- Carregamento -->
+        <div class="loading hidden" id="loading" aria-live="polite">
+            <div class="spinner"></div>
+            <p>Calculando nível de poder...</p>
+        </div>
+
+        <!-- Card de Resultado -->
+        <section class="result-card hidden" id="result-card" aria-live="polite">
+            <div id="result-content"></div>
+        </section>
+    </main>
+
+    <script type="module" src="JS/script.js"></script>
+</body>
+</html>
